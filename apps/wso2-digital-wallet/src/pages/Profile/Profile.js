@@ -39,6 +39,8 @@ function Profile() {
       const walletAddressResponse = await getLocalDataAsync(
         STORAGE_KEYS.WALLET_ADDRESS
       );
+      console.log(walletAddressResponse);
+      console.log("walletAddressResponse"); 
       const privateKeyResponse = await getLocalDataAsync(
         STORAGE_KEYS.PRIVATE_KEY
       );

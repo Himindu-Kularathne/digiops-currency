@@ -57,7 +57,7 @@ You can generate a wallet address and private key in two ways:
 2. **Using the Provided Script**: Run the following command:
 
 ```bash
-npx hardhat run scripts/generate-wallet.js --network wso2
+npx hardhat run scripts/generate-wallet.js  wso2
 ```
 
 After execution, the console will display the newly generated wallet address and its corresponding private key. Note these down securely.
