@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  node-01:
+    build:
+      context: ./infrastructure/node-01
+      dockerfile: Dockerfile
+    container_name: node-01
+    volumes:
+      - ./infrastructure/node-01:/data
+    ports:
+      - "8545:8545"
+      - "30303:30303"
+    environment:
+      - NODE_NAME=node-01
+
+  node-02:
+    build:
+      context: ./infrastructure/node-02
+      dockerfile: Dockerfile
+    container_name: node-02
+    volumes:
+      - ./infrastructure/node-02:/data
+    ports:
+      - "8546:8545"
+      - "30304:30303"
+    environment:
+      - NODE_NAME=node-02
+
+  node-03:
+    build:
+      context: ./node-03
+      dockerfile: Dockerfile
+    container_name: node-03
+    volumes:
+      - ./infrastructure/node-03:/data
+    ports:
+      - "8547:8545"
+      - "30305:30303"
+    environment:
+      - NODE_NAME=node-03

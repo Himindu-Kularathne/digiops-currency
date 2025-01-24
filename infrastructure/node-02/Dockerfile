@@ -24,5 +24,11 @@ USER 10014
 # Expose the required ports
 EXPOSE 8545 8552 30303
 
+# Copy the startup script into the container
+COPY ./startup-scripts/node-02.sh /startup-scripts/node-02.sh
+
+# Make sure the script is executable
+RUN chmod +x /startup-scripts/node-02.sh
+
 # Set the entry point to the startup script
-ENTRYPOINT ["/bin/sh", "/startup-scripts/node.sh"]
+ENTRYPOINT ["/bin/sh", "/startup-scripts/node-02.sh"]

@@ -1,5 +1,4 @@
 # Copyright (c) 2025, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
-
 # This software is the property of WSO2 LLC. and its suppliers, if any.
 # Dissemination of any information or reproduction of any material contained
 # herein in any form is strictly forbidden, unless permitted by WSO2 expressly.
@@ -23,6 +22,12 @@ USER 10014
 
 # Expose the required ports
 EXPOSE 8545 8552 30303
+
+# Copy the startup script into the container
+COPY ./startup-scripts/node.sh /startup-scripts/node.sh
+
+# Make sure the script is executable
+RUN chmod +x /startup-scripts/node.sh
 
 # Set the entry point to the startup script
 ENTRYPOINT ["/bin/sh", "/startup-scripts/node.sh"]
