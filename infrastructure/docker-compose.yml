@@ -3,7 +3,7 @@ version: '3.8'
 services:
   node-01:
     build:
-      context: ./infrastructure/node-01
+      context: ./node-01
       dockerfile: Dockerfile
     container_name: node-01
     volumes:
@@ -16,7 +16,7 @@ services:
 
   node-02:
     build:
-      context: ./infrastructure/node-02
+      context: ./node-02
       dockerfile: Dockerfile
     container_name: node-02
     volumes:
