@@ -7,12 +7,14 @@ services:
       dockerfile: Dockerfile
     container_name: node-01
     volumes:
-      - ./infrastructure/node-01:/data
+      - ./node-01:/data
     ports:
       - "8545:8545"
       - "30303:30303"
     environment:
       - NODE_NAME=node-01
+    networks:
+      - ethereum-net
 
   node-02:
     build:
@@ -20,12 +22,14 @@ services:
       dockerfile: Dockerfile
     container_name: node-02
     volumes:
-      - ./infrastructure/node-02:/data
+      - ./node-02:/data
     ports:
       - "8546:8545"
       - "30304:30303"
     environment:
       - NODE_NAME=node-02
+    networks:
+      - ethereum-net
 
   node-03:
     build:
@@ -33,9 +37,15 @@ services:
       dockerfile: Dockerfile
     container_name: node-03
     volumes:
-      - ./infrastructure/node-03:/data
+      - ./node-03:/data
     ports:
       - "8547:8545"
       - "30305:30303"
     environment:
       - NODE_NAME=node-03
+    networks:
+      - ethereum-net
+
+networks:
+  ethereum-net:
+    driver: bridge
