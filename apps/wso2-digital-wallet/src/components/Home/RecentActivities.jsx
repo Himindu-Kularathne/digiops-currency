@@ -29,7 +29,10 @@ function RecentActivities() {
 
     const fetchWalletAddress = async () => {
         try {
+            console.log({wallet_address :STORAGE_KEYS.WALLET_ADDRESS});
             const walletAddressResponse = await getLocalDataAsync(STORAGE_KEYS.WALLET_ADDRESS);
+            console.log({res: walletAddressResponse});
+
             setWalletAddress(walletAddressResponse)
         } catch (error) {
             console.log(`${ERROR_READING_WALLET_DETAILS}: ${error}`);

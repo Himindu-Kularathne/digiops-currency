@@ -47,7 +47,8 @@ function Home() {
       const walletAddressResponse = await getLocalDataAsync(
         STORAGE_KEYS.WALLET_ADDRESS
       );
-      setWalletAddress(walletAddressResponse);
+      console.log({ res: walletAddressResponse });
+     
     } catch (error) {
       console.log(`${ERROR_RETRIEVE_WALLET_ADDRESS} - ${error}`);
       messageApi.error(ERROR_RETRIEVE_WALLET_ADDRESS);
@@ -105,6 +106,7 @@ function Home() {
     try {
       setIsTokenBalanceLoading(true);
       const tokenBalance = await getWalletBalanceByWalletAddress(walletAddress);
+      console.log({ tokenBalance });
       setTokenBalance(tokenBalance);
       setIsTokenBalanceLoading(false);
     } catch (error) {

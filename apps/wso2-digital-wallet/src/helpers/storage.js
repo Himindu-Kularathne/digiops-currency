@@ -8,6 +8,7 @@
 import { saveLocalData, getLocalData } from "../microapp-bridge";
 
 export function saveLocalDataAsync(key, value) {
+  console.log("Saving data to local storage");
   return new Promise((resolve, reject) => {
     const callback = () => resolve();
     const failedToRespondCallback = (err) => reject(err);

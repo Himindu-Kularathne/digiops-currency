@@ -21,6 +21,8 @@ export const getRPCProvider = async () => {
    * get the API key form the local storage
    */
   const accessToken = await getTokenAsync();
+  console.log({ "Getting access token" : accessToken
+  });
   const headers = {
     Authorization: `Bearer ${accessToken}`
   };
@@ -35,7 +37,7 @@ export const getRPCProvider = async () => {
 export const getCurrentBlockNumber = async (retryCount = 0) => {
   const maxRetryCount = 5; // Set max retry count to 5
   try {
-    const provider = await getRPCProvider();
+    const provider = await getRPCPrvider();
     const blockNumber = await provider.getBlockNumber();
     return blockNumber;
   } catch (error) {
@@ -81,7 +83,9 @@ export const transferToken = async (senderWalletAddress, transferAmount) => {
     JSON.parse(CONTRACT_ABI),
     wallet
   );
-  const options = { gasPrice: 0, gasLimit: 5000000 };
+  const options = { gasPrice: 0, gasLimit: 
+    
+   };
   const decimals = await contract.decimals();
   const amount = ethers.utils.parseUnits(transferAmount, decimals);
   const tx = await contract.transfer(senderWalletAddress, amount, options);

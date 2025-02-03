@@ -114,6 +114,10 @@ export function saveLocalData(key, value, callback, failedToRespondCallback) {
 
 export function getLocalData(key, callback, failedToRespondCallback) {
   key = key.toString().replace(" ", "-").toLowerCase();
+  console.log("getLocalData", key);
+
+
+
   nativebridge.rpc({
     topic: "getLocalData",
     data: {

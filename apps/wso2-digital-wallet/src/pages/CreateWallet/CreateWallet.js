@@ -54,6 +54,7 @@ function CreateWallet() {
     setWalletCreateLoading(true);
     try {
       const wallet = ethers.Wallet.createRandom();
+      console.log(wallet);
       if (wallet.address) {
         updateUserWalletAddress(wallet.address)
           .then(async () => {
@@ -67,7 +68,7 @@ function CreateWallet() {
             setWalletPhrase(wallet.mnemonic.phrase);
           })
           .catch(async (error) => {
-            console.log(error);
+            console.log("Error creating wallet", error);  
             await showAlertBox(ERROR, ERROR_CREATING_WALLET, OK);
             setWalletCreateLoading(false);
           });

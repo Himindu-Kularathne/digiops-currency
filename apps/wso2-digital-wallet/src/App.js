@@ -8,14 +8,45 @@
 import "./App.css";
 import { HashRouter as Router } from "react-router-dom";
 import LayoutView from "./LayoutView";
+import { saveLocalDataAsync } from "./helpers/storage";
+import React, {useEffect, useState} from "react";
+import { SHOW_WALLET_ADDRESS } from "./constants/strings";
 
 function App() {
+
+  // access local storage data
+  
+  const [success , setSuccess] = useState(false);
+
+    const setAddress = async () => {
+      try {
+
+          saveLocalDataAsync("Hello");
+          setSU(true);
+      } catch(e) {
+        console.log(e);
+        
+        
+      }
+
+    }
+
+    useEffect(
+      () => {
+        setAddress()
+      }, []
+    )
+
   return (
-    <Router>
-      <div className="App">
-        <LayoutView />
-      </div>
-    </Router>
+    // <Router>
+    //   <div className="App">
+    //     <LayoutView />
+    //   </div>
+    // </Router>
+    <div>
+      {success}
+    </div>
+  
   );
 }
 

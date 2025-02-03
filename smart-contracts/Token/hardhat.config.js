@@ -15,6 +15,8 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
+console.log("RPC_URL: ", process.env.RPC_URL);
+
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
 

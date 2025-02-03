@@ -17,7 +17,7 @@ import { useLocation } from "react-router-dom";
 function LayoutView() {
   const { Content } = Layout;
   const location = useLocation();
-
+  
   const [isShowNavBar, setIsShowNavBar] = useState(false);
 
   useEffect(() => {
